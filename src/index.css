@@ -1,0 +1,191 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+
+:root {
+  --primary-green: #19B386;
+  --primary-blue: #1E6EB3;
+  --secondary-blue: #287fa4;
+}
+.active {
+  background: linear-gradient(90deg, 
+    rgba(25, 179, 134, 0.83) 17%, 
+    rgba(30, 110, 179, 0.84) 67%);
+  color: white;
+  border-radius: 3px;
+  
+  }
+  .color-main {
+    background: linear-gradient(90deg, 
+      rgba(25, 179, 134, 0.82) 17%, 
+      rgba(30, 110, 179, 0.86) 67%);
+  }
+.color-txt {
+  /* إضافة fallback للالوان */
+  color: var(--primary-green);
+  background: linear-gradient(90deg, 
+    var(--primary-green) 17%, 
+    var(--primary-blue) 67%);
+  -webkit-background-clip: text;
+  background-clip: text;
+}
+.color-slidebar{
+  background-color: #287fa4;
+ }
+ .background-main-pages{
+  background-color: #ABBAD0;
+  min-height: 100vh;
+  overflow: hidden;
+ }
+ .background-sliders{
+  background-color: #777777;
+ }
+  .loader {
+    width: 48px;
+    height: 48px;
+    border: 2px solid #36c0c2;
+    border-radius: 50%;
+    display: inline-block;
+    position: relative;
+    box-sizing: border-box;
+    animation: rotation 1s linear infinite;
+  }
+  .loader::after,
+  .loader::before {
+    content: '';  
+    box-sizing: border-box;
+    position: absolute;
+    left: 0;
+    top: 0;
+    background: #FF3D00;
+    width: 6px;
+    height: 6px;
+    transform: translate(150%, 150%);
+    border-radius: 50%;
+  }
+  .loader::before {
+    left: auto;
+    top: auto;
+    right: 0;
+    bottom: 0;
+    transform: translate(-150%, -150%);
+  }
+  
+  @keyframes rotation {
+    0% {
+      transform: rotate(0deg) translateZ(0);
+    }
+    100% {
+      transform: rotate(360deg) translateZ(0);
+    }
+  } 
+  .sticky-nav {
+    animation: sticky-nav 0.3s ease-out;
+    will-change: transform;
+  }
+  .product .btn {
+    transition: transform 1s ,opacity 1s;
+    transform: translateY(600%);
+    opacity: 0;
+  }
+  .product:hover .btn{
+    opacity: 1;
+    transform:translateY(0%);
+  }
+  .background-main-pages {
+    background-color: #ABBAD0;
+    min-height: 100vh;
+    overflow: hidden;
+    
+    /* تحسين للشاشات الصغيرة */
+    @media (max-width: 768px) {
+      padding: 1rem;
+    }
+  }
+
+  .row{
+    @apply flex flex-wrap  px-4 ;
+  }
+  .sticky-nav {
+    animation: sticky-nav 300ms;
+}
+
+.product .btn {
+  transition: 
+    transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+    opacity 0.3s ease-out;
+}
+
+.unified-btn {
+  transition: 
+    background 0.3s ease,
+    transform 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+} 
+@keyframes sticky-nav {
+  0% {
+      transform: translateY(-6em)
+  }
+
+  100% {
+      transform: translateY(0)
+  }
+}
+.category-img{
+  height: 200px;
+}
+.slider{
+  scrollbar-width: none;
+}
+.slider-container {
+   /* أو قيمة محددة كـ 80vh حسب التصميم */
+  overflow-y: hidden;
+  scrollbar-width: none;
+
+}
+
+
+.loader {
+  width: 48px;
+  height: 48px;
+  border: 5px solid;
+  border-color: #057a55 transparent;
+  border-radius: 50%;
+  display: inline-block;
+  box-sizing: border-box;
+  animation: rotation 1s linear infinite;
+}
+
+@keyframes rotation {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+} 
+
+.product .btn {
+  transition: 
+    transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+    opacity 0.3s ease-out;
+}
+
+.unified-btn {
+  transition: 
+    background 0.3s ease,
+    transform 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* تنسيقات الحقول الموحدة */
+.unified-input {
+  @apply !border-[1.5px] !border-gray-200 focus:!border-blue-800 
+         rounded-lg placeholder-gray-400 text-gray-700;
+}
+
+
+/* تنسيقات العناوين */
+.dialog-header {
+  @apply bg-blue-800 text-white p-4 rounded-t-xl;
+}
